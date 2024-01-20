@@ -29,4 +29,6 @@ This is a space invader game using the canvas from javascript. It will have the 
 
 - [ ] Update Background of game
 
+## Wireframe
+
 ![Alt text](image.png)
