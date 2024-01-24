@@ -4,11 +4,12 @@
 const img = new Image();
 img.src = "spaceship.png";
 
+// Create a class spaceship
 class spaceship{
     constructor(shipX, shipY){
         // Locate the starting location of the spaceship
         this.shipX = 200;
-        this.shipY = 650;
+        this.shipY = 600;
         this.leftPressed = false;
         this.rightPressed = false;
     }
