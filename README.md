@@ -9,15 +9,15 @@ This is a space invader game using the canvas from javascript. It will have the 
 
 - [x] Create the spaceship and allow horizontal movement with left and right arrow.
 
-- [ ] Spawn random aliens on the screen.
+- [x] Spawn random aliens on the screen.
 
-- [ ] Allow the user to shoot out missiles through space bar button.
+- [x] Allow the user to shoot out missiles through space bar button.
 
-- [ ] Create a life counter to tell user how many lives are left
+- [x] Create a life counter to tell user how many lives are left
 
-- [ ] Create a score feature to track how many aliens are shot down.
+- [x] Create a score feature to track how many aliens are shot down.
 
-- [ ] Create a game over feature if too many aliens pass space ship.
+- [x] Create a game over feature if too many aliens pass space ship.
 
 ### PMVP (Post Minimum Viable Product)
 
