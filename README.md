@@ -9,7 +9,7 @@ This is a space invader game using the canvas from javascript. It will have the 
 
 - [x] Create the spaceship and allow horizontal movement with left and right arrow.
 
-- [x] Spawn random aliens on the screen.
+- [x] Spawn random enemies on the screen.
 
 - [x] Allow the user to shoot out missiles through space bar button.
 

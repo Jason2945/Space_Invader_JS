@@ -13,27 +13,13 @@ class Bullet{
     // This method displays the number of bullets the user has left
     drawBulletNum(){
         ctx.font = "bold 20px Arial";
-        ctx.fillStyle = "darkblue";
+        ctx.fillStyle = "red";
         ctx.fillText(`Bullets: ${this.bulletNum}`, canvas.width - 130, 740);
     }
 
     // This method checks if the user pressed spacebar
     spacebarDown(inputButton){
         if (inputButton.key === " "){
-            this.spacePressed = true;
-        }
-    }
-
-    // This method checks if the user released spacebar
-    spacebarUp(inputButton){
-        if (inputButton.key === " "){
-            this.spacePressed = false;
-        }
-    }
-
-    // If spacebar is pressed, allow user to create a bullet if there are bullets left
-    shootBullet(){
-        if (this.spacePressed){
             this.createBullet();
         }
     }
@@ -42,8 +28,8 @@ class Bullet{
     createBullet(){
         if (this.bulletNum > 0){
             let bullet = {};
-            bullet.x = ship.shipX + 46;
-            bullet.y = ship.shipY - 10;
+            bullet.x = shipInfo.shipX + 46;
+            bullet.y = shipInfo.shipY - 10;
             this.bullets.push(bullet);
             // Every bullet shot is one less ammo left until reloaded
             this.bulletNum --;
@@ -52,13 +38,23 @@ class Bullet{
 
     // This method updates the bullets y position when ran
     moveBullet(){
-        this.bullets.map(bullet => bullet.y -= this.bulletSpeed)
+        this.bullets.forEach(bullet => bullet.y -= this.bulletSpeed)
     }
 
     // This method draws the bullets on the canvas
     drawBullets() {
-        this.bullets.map(bullet => {
+        this.bullets.forEach(bullet => {
         ctx.fillRect(bullet.x, bullet.y, 5, 10)
         })
-    } 
+    }
+
+    // This method removes bullets off the screen and adds a new bullet to bullet num
+    removeBullets(){
+        this.bullets.forEach(bullet => {
+            let bulletIndex = this.bullets.indexOf(bullet);
+            if (bullet.y < 0){
+                this.bullets.splice(bulletIndex, 1);
+            }
+        })
+    }
 }

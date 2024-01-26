@@ -4,53 +4,77 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Call the classes for each object
-const bullet = new Bullet();
-const info = new gameInfo();
-const ship = new spaceship();
-const enemy = new Enemies();
 
-// Speed of enemy spawnrate
+
+// Call the classes for each object
+const bulletInfo = new Bullet();
+const gameInfo = new Info();
+const shipInfo = new spaceship();
+const enemyInfo = new Enemies();
+const backgroundInfo = new Background();
+
+// Speed of enemy spawn rate
 let time_ms = 1000;
+
+// This function checks collision between the bullet and the enemies
+function collisionDetection(bullets, enemies) {
+    enemies.forEach(enemy => {
+        let enemyIndex = enemies.indexOf(enemy);
+        bullets.forEach(bullet =>{
+            let bulletIndex = bullets.indexOf(bullet);
+            if(bullet.x - 30 <= enemy.x && bullet.x + 30 >= enemy.x && bullet.y < enemy.y && bullet.y > enemy.y - 20){
+                enemies.splice(enemyIndex, 1);
+                bullets.splice(bulletIndex, 1);
+                gameInfo.score ++;
+            }
+        })
+    })
+}
 
 // Main function that calls all the other functions
 function drawAll(){
     // This clears the screen for every new draw
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    enemy.enemyLocation();
-    info.checkLevel();
-    info.drawScore();
-    info.drawLives();
-    info.drawLevel();
+    enemyInfo.enemyLocation();
 
-    ship.moveShip();
-    ship.drawShip();
+    gameInfo.checkLevel();
+    gameInfo.drawScore();
+    gameInfo.drawLives();
+    gameInfo.drawLevel();
 
-    bullet.drawBulletNum();
-    bullet.shootBullet();
-    bullet.drawBullets();
-    bullet.moveBullet();
+    backgroundInfo.createStars();
+    backgroundInfo.drawStars();
+    backgroundInfo.moveStars();
+    backgroundInfo.deleteStars();
 
-    enemy.moveEnemies();
-    enemy.drawEnemies();
+    shipInfo.moveShip();
+    shipInfo.drawShip();
 
-    if (!info.gameOver()){
+    bulletInfo.drawBulletNum();
+    bulletInfo.drawBullets();
+    bulletInfo.moveBullet();
+    bulletInfo.removeBullets();
+
+    enemyInfo.moveEnemies();
+    enemyInfo.drawEnemies();
+    collisionDetection(bulletInfo.bullets, enemyInfo.totalEnemies);
+
+    if (!gameInfo.gameOver()){
         gameOn = requestAnimationFrame(drawAll);
     }else {
         cancelAnimationFrame(gameOn);
-        info.displayGameOver();
+        gameInfo.displayGameOver();
     }
     
 }
 setInterval(() => {
-    enemy.createEnemies();
+    enemyInfo.createEnemies();
 }, time_ms);
 
 // Event listeners to check user keyboard inputs
-document.addEventListener("keyup", inputButton => ship.userReleased(inputButton));
-document.addEventListener("keydown", inputButton => ship.userPressed(inputButton));
-document.addEventListener("keyup", inputButton => bullet.spacebarUp(inputButton));
-document.addEventListener("keydown", inputButton => bullet.spacebarDown(inputButton));
+document.addEventListener("keyup", inputButton => shipInfo.userReleased(inputButton));
+document.addEventListener("keydown", inputButton => shipInfo.userPressed(inputButton));
+document.addEventListener("keydown", inputButton => bulletInfo.spacebarDown(inputButton));
 
 drawAll();
