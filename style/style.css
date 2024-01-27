@@ -1,0 +1,62 @@
+body {
+    background-color: black;
+    color: red;
+    text-align: left;
+}
+
+.grid-container {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+}
+
+canvas {
+    border: 1px solid red;
+    background-color: black;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 10px;
+}
+
+.words{
+    grid-column-start: 1;
+    justify-self: center;
+}
+
+p {
+    margin: 5%;
+    font-family:monospace;
+    font-size: 20px;
+}
+
+span{
+    color: yellow;
+}
+
+.gameCanvas{
+    grid-column-start: 2;
+}
+
+.blank{
+    grid-column-start: 3;
+}
+
+.buttons{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    text-align: center;
+}
+
+button{
+    margin: 20px;
+    font-size: 20px;
+    background-color: red;
+}
+
+button:hover{
+    background-color: green;
+}
+
+button:focus{
+    background-color: pink;
+}

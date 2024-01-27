@@ -1,7 +1,7 @@
 // Enemies info
 
 const asteroid_img = new Image();
-asteroid_img.src = "asteroid.png";
+asteroid_img.src = "style/asteroid.png";
 
 // Enemy class
 class Enemies{
@@ -15,7 +15,7 @@ class Enemies{
     // This method creates enemies
     createEnemies(){
         let enemy = {};
-        enemy.x = Math.floor(Math.random() * 400) + 50;
+        enemy.x = Math.floor(Math.random() * 400) + 45;
         enemy.y = 0;
         this.totalEnemies.push(enemy);
         this.enemySpawnCounter ++;
@@ -48,5 +48,13 @@ class Enemies{
                 this.totalEnemies.splice(index, 1)
             }
         })
+    }
+
+    // This method resets the values of the class
+    resetValues(){
+        this.enemySpawnCounter = 0;
+        this.totalEnemies = [];
+        this.enemyNum = gameInfo.gameLevel * 100;
+        this.enemySpeed = (gameInfo.gameLevel / 5);
     }
 }

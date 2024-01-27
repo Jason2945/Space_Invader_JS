@@ -4,15 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Invader</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="shortcut icon" href="#" />
 </head>
 <body>
-    <canvas id="canvas" width="500" height="750"></canvas>
+    <div class="grid-container">
+        <div class="words"> 
+            <p class="instructions">
+                <br><br>
+                Greetings Captain!<br><br>Asteroids are falling onto Earth!<br> You are our last hope!
+                <br> <br> Instructions
+                <br> <span>1.</span> Use the ← or → arrows to move the spaceship left and right.
+                <br> <span>2.</span> Use the ↑ or ↓ arrows to move the spaceship up an down.
+                <br> <span>3.</span> Use the space key to shoot out missles.
+                <br> <span>4.</span> Watch out! If 3 asteroids pass you or hits you, you lose!
+                <br> <span>5.</span> You only have 1000 missles. Use them wisely!
+                <br> <span>6.</span> Every 50 asteroids destroyed will increase the speed of the following asteroids. Be careful!
+            </p>
+
+            <div class="buttons"><button id="playButton">Play</button> <button id="pauseButton">Pause</button></div>
+        </div>
+
+        <div class="gameCanvas">
+            <canvas id="canvas" width="500" height="750"></canvas>
+        </div>
+        <div class="blank"></div>
+    </div>
+    
     <script src="scripts/gameinfo.js"></script>
     <script src="scripts/enemies.js"></script>
     <script src="scripts/spaceship.js"></script>
     <script src="scripts/bullets.js"></script>
+    <script src="scripts/collision.js"></script>
     <script src="scripts/background.js"></script>
     <script src="scripts/main.js"></script>
+
 </body>
 </html>

@@ -21,13 +21,13 @@ This is a space invader game using the canvas from javascript. It will have the 
 
 ### PMVP (Post Minimum Viable Product)
 
-- [ ] Create a storyline for the game
+- [x] Create a instructions for the game
 
-- [ ] Add progressively difficult fights and bosses
+- [x] Add progressively difficult fights
 
-- [ ] Add SFX
+- [x] Add SFX
 
-- [ ] Update Background of game
+- [x] Update Background of game
 
 ## Wireframe
 

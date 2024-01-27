@@ -2,10 +2,14 @@
 
 // Create a class for the info displayed on canvas
 class Info{
-    constructor(livesLeft, score, gameLevel){
+    constructor(livesLeft, score, gameLevel, gameOn, pauseOn, playOn, audio){
         this.livesLeft = 3;
         this.score = 0;
         this.gameLevel = 1;
+        this.gameOn = false;
+        this.pauseOn = false;
+        this.playOn = false;
+        this.audio = new Audio('lofi.mp3');
     }
 
     // This method displays the current user score
@@ -40,22 +44,36 @@ class Info{
         ctx.font = "bold 50px Arial";
         ctx.fillStyle = "yellow";
         ctx.fillText('GAME OVER', 100, canvas.height/2);
-        ctx.fillText(`Final Score : ${this.score}`, 10, 50)
-        setTimeout(this.startAgain, 10000);
+        ctx.fillText(`Final Score : ${this.score}`, 10, 50);
     }
 
     // This method checks if it is game over
     gameOver(){
         if (this.livesLeft <= 0){
-            return true;
+            this.gameOn = false;
+            playButton.textContent = "Try Again";
+            this.pauseMusic();
         }
-        return false;
     }
 
-    // This method starts the game again
-    startAgain(){
-        console.log('running function')
-        this.gameOver = false;
-        requestAnimationFrame(drawAll);
+    // This method plays music
+    playMusic(){
+        this.audio.play();
+    }
+
+    // This method pauses the music
+    pauseMusic(){
+        this.audio.pause();
+    }
+
+    // This method resets all the values in the game
+    resetValues(){
+        this.livesLeft = 3;
+        this.score = 0;
+        this.gameLevel = 1;
+        this.gameOn = false;
+        this.pauseOn = false;
+        this.playOn = false;
+        this.audio = new Audio('lofi.mp3');
     }
 }

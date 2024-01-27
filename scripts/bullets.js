@@ -57,4 +57,12 @@ class Bullet{
             }
         })
     }
+
+    // This method resets the value of the class
+    resetValue(){
+        this.bullets = [];
+        this.bulletSpeed = 5;
+        this.bulletNum = 1000;
+        this.spacePressed = false;
+    }
 }

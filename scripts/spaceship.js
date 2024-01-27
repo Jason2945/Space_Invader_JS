@@ -2,7 +2,7 @@
 
 // Create and upload spaceship image
 const spaceship_img = new Image();
-spaceship_img.src = "spaceship.png";
+spaceship_img.src = "style/spaceship.png";
 
 // Create a class spaceship
 class spaceship{
@@ -16,12 +16,12 @@ class spaceship{
         this.downPressed = false;
     }
 
-    // This function draws the spaceship on the canvas
+    // This method draws the spaceship on the canvas
     drawShip() {
         ctx.drawImage(spaceship_img, this.shipX, this.shipY);
     }
 
-    // This function moves the spaceship
+    // This method moves the spaceship
     userPressed(inputButton){
         if (inputButton.key === "Right" || inputButton.key === "ArrowRight") {
             this.rightPressed = true;
@@ -34,7 +34,7 @@ class spaceship{
         }
     }
 
-    // This function stops the spaceship
+    // This method stops the spaceship
     userReleased(inputButton){
         if (inputButton.key === "Right" || inputButton.key === "ArrowRight") {
             this.rightPressed = false;
@@ -47,7 +47,7 @@ class spaceship{
         }
     }
 
-    // This function moves the spaceship location
+    // This method moves the spaceship location
     moveShip(){
         if (shipInfo.rightPressed) {
             shipInfo.shipX = Math.min(shipInfo.shipX + 5, canvas.width - 100);
@@ -58,5 +58,15 @@ class spaceship{
         } else if (shipInfo.downPressed) { 
             shipInfo.shipY = Math.min(shipInfo.shipY + 5, canvas.height - 100); 
         }
+    }
+
+    // This method resets the value of the class
+    resetValues(){
+        this.shipX = 200;
+        this.shipY = 600;
+        this.leftPressed = false;
+        this.rightPressed = false;
+        this.upPressed = false;
+        this.downPressed = false;
     }
 }
