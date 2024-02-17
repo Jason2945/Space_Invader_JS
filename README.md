@@ -4,6 +4,7 @@
 
 ## Description
 This is a space invader game using the canvas from javascript. It will have the simple functions of shooting invaders, gaining score, and progressively more difficult fights.
+The game is currently completed, but I will be coming back to update the game and add more PMVP.
 
 ### MVP (Minimum Viable Product)
 
@@ -29,6 +30,15 @@ This is a space invader game using the canvas from javascript. It will have the 
 
 - [x] Update Background of game
 
+### Possible Ideas to add and improve on
+
+- Create bonus packs:
+  - Health Increase
+  - Ammo Speed
+  - Enemy Slowdown
+- Multiplayer Function
+
 ## Wireframe
 
 ![Alt text](image.png)
+
