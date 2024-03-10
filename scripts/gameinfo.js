@@ -9,7 +9,7 @@ class Info{
         this.gameOn = false;
         this.pauseOn = false;
         this.playOn = false;
-        this.audio = new Audio('https://github.com/Jason2945/Space_Invader_JS/blob/main/Lofi.mp3');
+        this.audio = new Audio('https://github.com/Jason2945/Space_Invader_JS/blob/main/Lofi.mp3?raw=true');
     }
 
     // This method displays the current user score
